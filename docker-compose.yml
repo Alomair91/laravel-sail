@@ -1,5 +1,5 @@
 services:
-    munjz_ops_laravel:
+    laravel:
         build:
             context: ./vendor/laravel/sail/runtimes/8.2
             dockerfile: Dockerfile
@@ -22,10 +22,10 @@ services:
         networks:
             - sail
         depends_on:
-            - munjz_ops_mysql
-            - munjz_ops_redis
-            - munjz_ops_mailpit
-    munjz_ops_mysql:
+            - mysql
+            - redis
+            - mailpit
+    mysql:
         image: 'mysql/mysql-server:8.0'
         ports:
             - '${FORWARD_DB_PORT:-3306}:3306'
@@ -49,7 +49,7 @@ services:
                 - '-p${DB_PASSWORD}'
             retries: 3
             timeout: 5s
-    munjz_ops_redis:
+    redis:
         image: 'redis:alpine'
         ports:
             - '${FORWARD_REDIS_PORT:-6379}:6379'
@@ -64,7 +64,7 @@ services:
                 - ping
             retries: 3
             timeout: 5s
-    munjz_ops_mailpit:
+    mailpit:
         image: 'axllent/mailpit:latest'
         ports:
             - '${FORWARD_MAILPIT_PORT:-1025}:1025'

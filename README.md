@@ -3,7 +3,7 @@ laravel sail:
 - docker-compose up -d
 - docker-compose down
 
-to access laravel sail command go to ubuntu
+to access laravel sail command go to ubuntu on windows
 - wsl -d ubuntu
 - sail up
 - sail stop

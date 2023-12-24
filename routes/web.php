@@ -14,10 +14,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    \Illuminate\Support\Facades\Redis::set('name', 'Mohammed ');
+    \Illuminate\Support\Facades\Redis::set('name1', 'Mohammed ');
     \Illuminate\Support\Facades\Redis::set('name2', 'Mohammed 2');
-    \Illuminate\Support\Facades\Redis::set('names', 'mohammed', "hassan");
-    error_log(\Illuminate\Support\Facades\Redis::get('name'));
+    \Illuminate\Support\Facades\Redis::set('name3', 'mohammed', "hassan");
+
     error_log(\Illuminate\Support\Facades\Redis::get('name2'));
+    error_log(\Illuminate\Support\Facades\Redis::get('name2'));
+    error_log(\Illuminate\Support\Facades\Redis::get('name3'));
+
     return view('welcome');
 });
